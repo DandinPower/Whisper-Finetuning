@@ -31,7 +31,7 @@
     - `MAX_STEPS` : The maximum steps of training.
     - `PER_DEVICE_TRAIN_BATCH_SIZE` : The batch size of training.
     - `PER_DEVICE_EVAL_BATCH_SIZE` : The batch size of evaluation.
-    - `GRADIENT_ACCUMULATION_STEPS`: Openai recommends tahat the actual train batch should equal 32 (per_device_train_batch_size * gradient_accumulation_steps)
+    - `GRADIENT_ACCUMULATION_STEPS`: Openai recommends tahat the actual train batch should equal 32 (per_device_train_batch_size * gradient_accumulation_steps) [Reference](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event#recommended-training-configurations)
     - `LEARNING_RATE` : The learning rate of training.
     - `WARMUP_STEPS` : The warmup steps of training.
     - `EVAL_STEPS` : The evaluation steps of training.
