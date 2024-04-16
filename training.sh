@@ -16,9 +16,9 @@ GRADIENT_ACCUMULATION_STEPS="8"
 
 EVAL_STEPS="200"
 SAVE_STEPS="200"
-GENERATION_MAX_LENGTH="1000"
+GENERATION_MAX_LENGTH="225"
 
-MODEL_INDEX_NAME=whisper-large-taiwanese-asr-v2
+MODEL_INDEX_NAME=whisper-large-taiwanese-asr
 OUTPUT_DIR="./exp/$MODEL_INDEX_NAME"
 
 # Clear out the output directory

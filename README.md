@@ -36,7 +36,7 @@
     - `WARMUP_STEPS` : The warmup steps of training.
     - `EVAL_STEPS` : The evaluation steps of training.
     - `SAVE_STEPS` : The model saving steps of training.
-    - `GENERATION_MAX_LENGTH` : The maximum length of text generation.
+    - `GENERATION_MAX_LENGTH` : The maximum length of text generation. You need to carefully set because if the model is overfitting or underfitting, it may happen that model can't generate next token, but the generation is not stopped and will cause IndexError.
     - `MODEL_INDEX_NAME` : The model name you want to push to huggingface hub.
 
 2. Enable 8bit Optimizer 

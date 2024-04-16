@@ -1,6 +1,6 @@
 DATASET_NAME="DandinPower/Taiwanese_ASR"
-MODEL_NAME="DandinPower/whisper-large-taiwanese-asr-v2"
-OUTPUT_PATH="submission/whisper-large-taiwanese-asr-v2.csv"
+MODEL_NAME="exp/whisper-large-taiwanese-asr"
+OUTPUT_PATH="submission/whisper-large-taiwanese-asr.csv"
 INFERENCE_SPLIT="test"
 SAMPLE_RATE=16000
 
