@@ -8,3 +8,4 @@ jiwer
 tensorboard
 soundfile
 librosa
+bitsandbytes

@@ -31,12 +31,17 @@
     - `MAX_STEPS` : The maximum steps of training.
     - `PER_DEVICE_TRAIN_BATCH_SIZE` : The batch size of training.
     - `PER_DEVICE_EVAL_BATCH_SIZE` : The batch size of evaluation.
+    - `GRADIENT_ACCUMULATION_STEPS`: Openai recommends tahat the actual train batch should equal 32 (per_device_train_batch_size * gradient_accumulation_steps)
     - `LEARNING_RATE` : The learning rate of training.
     - `WARMUP_STEPS` : The warmup steps of training.
     - `EVAL_STEPS` : The evaluation steps of training.
     - `SAVE_STEPS` : The model saving steps of training.
     - `GENERATION_MAX_LENGTH` : The maximum length of text generation.
     - `MODEL_INDEX_NAME` : The model name you want to push to huggingface hub.
+
+2. Enable 8bit Optimizer 
+    - [Reference](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event#adam-8bit)
+    - You can enable the 8bit optimizer to further reduce VRAM usage by adding `--optim="adamw_bnb_8bit"`
 
 2. Run the following command to train the model
     ```bash

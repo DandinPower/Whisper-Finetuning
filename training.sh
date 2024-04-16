@@ -4,19 +4,21 @@ LANGUAGE="chinese"
 TRAIN_SPLIT_NAME="train"
 EVAL_SPLIT_NAME="validation"
 
-MODEL_NAME_OR_PATH="openai/whisper-medium"
+MODEL_NAME_OR_PATH="openai/whisper-large"
 DATASET_NAME="DandinPower/Taiwanese_ASR"
 
 MAX_STEPS="5000"
-PER_DEVICE_TRAIN_BATCH_SIZE="16"
-PER_DEVICE_EVAL_BATCH_SIZE="16"
+PER_DEVICE_TRAIN_BATCH_SIZE="4"
+PER_DEVICE_EVAL_BATCH_SIZE="4"
 LEARNING_RATE="1e-5"
 WARMUP_STEPS="500"
+GRADIENT_ACCUMULATION_STEPS="8"
+
 EVAL_STEPS="200"
 SAVE_STEPS="200"
-GENERATION_MAX_LENGTH="500"
+GENERATION_MAX_LENGTH="1000"
 
-MODEL_INDEX_NAME=whisper-medium-tawiwanese-asr
+MODEL_INDEX_NAME=whisper-large-taiwanese-asr-v2
 OUTPUT_DIR="./exp/$MODEL_INDEX_NAME"
 
 # Clear out the output directory
@@ -31,6 +33,7 @@ python run_speech_recognition_seq2seq_streaming.py \
 	--language $LANGUAGE \
 	--train_split_name $TRAIN_SPLIT_NAME --eval_split_name $EVAL_SPLIT_NAME \
     --per_device_train_batch_size $PER_DEVICE_TRAIN_BATCH_SIZE --per_device_eval_batch_size $PER_DEVICE_EVAL_BATCH_SIZE \
+	--gradient_accumulation_steps $GRADIENT_ACCUMULATION_STEPS \
     --max_steps $MAX_STEPS --learning_rate $LEARNING_RATE --warmup_steps $WARMUP_STEPS --generation_max_length $GENERATION_MAX_LENGTH \
 	--output_dir $OUTPUT_DIR \
 	--logging_steps="25" \
@@ -54,5 +57,6 @@ python run_speech_recognition_seq2seq_streaming.py \
 	--use_auth_token \
 	--push_to_hub \
 	--gradient_checkpointing \
+	--optim="adamw_bnb_8bit" \
 	# --dataset_config_name $DATASET_CONFIG_NAME \
 	# --streaming \
