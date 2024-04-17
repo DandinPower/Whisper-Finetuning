@@ -21,7 +21,7 @@ def inference(args: Namespace):
         audio = data["audio"]
         transcription = None 
         datas.append(WavAndTranscription(index, audio, transcription))
-    
+
     transcriber = pipeline("automatic-speech-recognition", model=args.model_name, device_map="auto")
 
     for i in tqdm(range(len(datas))):
